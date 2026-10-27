@@ -2,9 +2,9 @@
 
 一款 Windows 桌面工具：**一键扫描音乐文件夹（含所有子目录），批量搜索并下载与音乐同名的 `.lrc` 歌词文件**。
 
-多平台接口自动切换 + 精确/模糊双重匹配 + 纯音乐智能识别，纯 Python 标准库实现，零第三方依赖。
+多平台接口自动切换 + 精确/模糊双重匹配 + 纯音乐智能识别 + **英文歌自动下载双语歌词（原文+中文翻译）** + **并发搜索加速**，纯 Python 标准库实现，零第三方依赖。
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-lightgrey)
 ![Python](https://img.shields.io/badge/python-3.8%2B-green)
 ![License](https://img.shields.io/badge/license-MIT-orange)
@@ -42,6 +42,18 @@
 - 自动识别平台占位提示（"此歌曲为没有填词的纯音乐，请您欣赏"）
 - 判定为纯音乐时不生成 `.lrc`，并自动清理此前误存的占位歌词
 
+### 英文歌自动双语 ⭐ (v1.1.0)
+外文歌曲**优先下载带中文翻译的双语歌词**：
+- 网易云 `tlyric` / QQ 音乐 `trans` 翻译接口自动合并
+- 双语格式：原文行下方插入同一时间戳的中文翻译行，绝大多数播放器支持
+- 找不到翻译版时自动回退使用原文，绝不强行凑数
+- 排除 "DJ版" 这类歌名夹带个别中文字造成的误判
+
+### 并发搜索加速 ⭐ (v1.1.0)
+- 所有接口、所有关键词**同时并发**搜索，单首歌搜索耗时从串行 10 秒级降到 1~2 秒
+- 网易云接口自动限流节流（0.7s 间隔），避免触发 "操作频繁"
+- 同分候选按翻译可用性排序：网易云（有翻译）优先
+
 ### 多格式支持
 `mp3` `flac` `wav` `ape` `ogg` `m4a` `wma` `aac` `opus` `wv` `dsf`
 
@@ -50,7 +62,7 @@
 ## 📦 下载安装
 
 ### 方式一：直接使用（推荐，无需 Python）
-前往 [**Releases**](../../releases) 页面下载 `LRC-Downloader-v1.0.0-Windows-x64.zip`，解压后双击 `歌词批量下载器.exe` 即可。
+前往 [**Releases**](../../releases) 页面下载 `LRC-Downloader-v1.1.0-Windows-x64.zip`，解压后双击 `歌词批量下载器.exe` 即可。
 
 > 单文件免安装，内置 Python 运行时，可复制到任何 Windows 10/11 64 位电脑使用。
 > 首次启动需 2~3 秒解压加载，属正常现象。
@@ -96,7 +108,7 @@ pyinstaller --noconfirm --clean --onefile --windowed ^
 ├── download_lrc.py             # 下载核心（多接口 + 匹配逻辑 + CLI）
 ├── 启动歌词下载器.bat           # Windows 双击启动脚本
 ├── app.ico                     # 应用图标
-└── Releases: LRC-Downloader-v1.0.0-Windows-x64.zip   # 免安装发行包
+└── Releases: LRC-Downloader-v1.1.0-Windows-x64.zip   # 免安装发行包
 ```
 
 ## 🛠️ 技术说明
