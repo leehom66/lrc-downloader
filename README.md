@@ -50,7 +50,7 @@
 ## 📦 下载安装
 
 ### 方式一：直接使用（推荐，无需 Python）
-前往 [**Releases**](../../releases) 页面下载 `歌词批量下载器-v1.0.0-Windows-x64.zip`，解压后双击 `歌词批量下载器.exe` 即可。
+前往 [**Releases**](../../releases) 页面下载 `LRC-Downloader-v1.0.0-Windows-x64.zip`，解压后双击 `歌词批量下载器.exe` 即可。
 
 > 单文件免安装，内置 Python 运行时，可复制到任何 Windows 10/11 64 位电脑使用。
 > 首次启动需 2~3 秒解压加载，属正常现象。
@@ -96,7 +96,7 @@ pyinstaller --noconfirm --clean --onefile --windowed ^
 ├── download_lrc.py             # 下载核心（多接口 + 匹配逻辑 + CLI）
 ├── 启动歌词下载器.bat           # Windows 双击启动脚本
 ├── app.ico                     # 应用图标
-└── 歌词批量下载器-v1.0.0-Windows-x64.zip   # 免安装发行包（也在 Releases）
+└── Releases: LRC-Downloader-v1.0.0-Windows-x64.zip   # 免安装发行包
 ```
 
 ## 🛠️ 技术说明
